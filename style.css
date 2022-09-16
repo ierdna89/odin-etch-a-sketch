@@ -28,7 +28,11 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
   flex-wrap: wrap;
-  width: 160px;
-  height: 160px;
+  width: 600px;
+  height: 600px;
   background-color: aqua;
 }
+/* 
+.onClick {
+  background-color: red;
+} */
