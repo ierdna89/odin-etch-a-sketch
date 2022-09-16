@@ -5,7 +5,7 @@ for (let i = 0; i <= 224; i++) {
   divs.style.height = "40px";
   divs.style.boxSizing = "border-box";
   divs.style.border = "0.1px solid black";
-  divs.addEventListener("mousedown", () => {
+  divs.addEventListener("touchstart", () => {
     divs.style.backgroundColor = "pink";
   });
   container.appendChild(divs);
@@ -16,18 +16,18 @@ let isDown = false;
 
 const divs2 = document.querySelector("container");
 for (const divs2 of container.children) {
-  divs2.addEventListener("mouseover", () => {
+  divs2.addEventListener("touchmove", () => {
     if (isDown === true) {
       divs2.style.backgroundColor = "pink";
     }
   });
 };
 
-document.addEventListener('mousedown', () => {
+document.addEventListener('touchstart', () => {
   isDown = true;
 });
 
-document.addEventListener('mouseup', () => {
+document.addEventListener('touchend', () => {
   isDown = false;
 });
 
