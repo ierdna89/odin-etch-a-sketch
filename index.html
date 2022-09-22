@@ -5,17 +5,47 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/8769c0bd76.js" crossorigin="anonymous"></script>
   <script src="script.js" defer></script>
   <title>Etch-A-Sketch</title>
 </head>
 <body>
   <header class="header" id="header">
+    <h1 class="title">Etch-A-Sketch</h2>
   </header>
   <main class="main" id="main">
-    <div class="container" id="container">
+    <div class="gridContainer" id="gridContainer">
     </div>
+    <div class="settings" id="settings">
+      <button class="btn btn-square" id="btn-Color">Color</button>
+      <button class="btn btn-square" id="btn-Grid" value="OFF">Grid</button>
+      <button class="btn btn-square" id="btn-Eraser" value="OFF">Eraser</button>
+      <button class="btn btn-square" id="btn-Reset">Reset</button>
+    </div>
+    <div class="sliderSection" id="sliderSection">
+      <div class="slidecontainer">
+        <input type="range" min="1" max="60" step="1" value="16" class="slider" id="myRange">
+      </div>
+      <div class="gridSize" id="gridSize">30 x 30</div>
+    </div>
+    <!--<div class="gridNumber" id="gridNumber">
+      <button class="btn btn-square" id="btn-Small">Small Grid</button>
+      <button class="btn btn-square" id="btn-Medium">Medium Grid</button>
+      <button class="btn btn-square" id="btn-Large">Large Grid</button>
+      <button class="btn btn-square" id="btn-XLarge">Toggle Grid</button>
+    </div>-->
   </main>
-  <footer class="footer" id="footer">
-  </footer>
+  <footer class="footer">
+			<p>
+				Copyright ©
+        <script>
+          document.write(new Date().getFullYear())
+        </script>
+        ierdna89 
+      </p>
+      <a href="https://github.com/ierdna89" target="_blank">
+			<i class="fa-brands fa-github"></i>
+			</a>
+    </footer>
 </body>
 </html>
