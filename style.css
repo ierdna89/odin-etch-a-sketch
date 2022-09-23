@@ -29,8 +29,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* padding: 40px; */
-  /* margin-top: 40px; */
   background-color: var(--primary-light);
 }
 
@@ -45,8 +43,6 @@ body {
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  /* height: 700px; */
-  /* margin: 0 auto; */
 }
 
 .gridContainer {
@@ -70,19 +66,7 @@ body {
   width: 500px;
   height: 50px;
   margin-bottom: 5px;
-  /* border: 1px solid black; */
-  /* position: absolute;
-  bottom: auto;
-  left: 15%; */
 }
-
-/* .gridNumber {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 500px;
-  height: 30px;
-} */
 
 .btn {
   width: 125px;
@@ -94,26 +78,10 @@ body {
   background-color: var(--secondary-dark);
   color: white;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-  /* box-shadow: inset 0px 0px 10px #333; */
 }
-
-/* 
-#btn-Small,
-#btn-Medium,
-#btn-Large {
-  border-width: thin 0px thin thin;
-  height: 30px;
-  font-size: 13px;
-}
-
-#btn-XLarge {
-  border-width: thin;
-  height: 30px;
-  font-size: 13px;
-} */
 
 #btn-Color,
-#btn-BW,
+#btn-Grid,
 #btn-Eraser {
   border-width: thin 0px thin thin;
 }
@@ -123,14 +91,10 @@ body {
 }
 
 .btn:hover {
-  /* box-shadow: inset 0px 0px 5px #333; */
-  /* border-style: none; */
   box-shadow: none;
   background-color: var(--clicked);
   color: var(--primary-dark);
-  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
-  /* box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; */
-  /* box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; */
+
 }
 
 .btnClicked {
@@ -149,7 +113,6 @@ body {
 
 .slidecontainer {
   width: 75%;
-  /* box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; */
 }
 
 .slider {
@@ -203,10 +166,6 @@ body {
   height: auto;
   padding: 10px;
   opacity: 50%;
-  /* margin-top: 10px; */
-  /* position: absolute;
-  bottom: 2%;
-  left: auto; */
 }
 
 .fa-github {

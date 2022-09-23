@@ -1,6 +1,7 @@
 let slider = document.getElementById("myRange");
 let output = document.getElementById("gridSize");
 let isEraserButtonClicked = false;
+let isGridButtonToggled = false;
 
 output.innerText = `${slider.value} x ${slider.value}`;
 
@@ -18,8 +19,8 @@ function drawDefaultGrid() {
     divs.style.height = "31.25px";
     container.style.width = "500px";
     divs.style.boxSizing = "border-box";
-    divs.style.border = "0.1px solid black";
     divs.setAttribute("class", "gridDivs");
+    // divs.style.border = "0.1px solid black";
     container.appendChild(divs);
   }
 
@@ -27,6 +28,7 @@ function drawDefaultGrid() {
   console.log(isEraserButtonClicked);
 
   drawOnBoard();
+  toggleGridButton();
 }
 
 drawDefaultGrid();
@@ -46,7 +48,7 @@ function drawGrid() {
   }
 
   function getGridDimension(x) {
-    x = calcSquareDimensions() * gridSquaresXtraLarge + 0.4;
+    x = calcSquareDimensions() * gridSquaresXtraLarge + 0.5;
     return x.toFixed(2);
   }
 
@@ -57,11 +59,12 @@ function drawGrid() {
     divs.style.height = `${calcSquareDimensions()}px`;
     container.style.width = `${getGridDimension()}px`;
     divs.style.boxSizing = "border-box";
-    divs.style.border = "0.1px solid black";
     divs.setAttribute("class", "gridDivs");
+    // divs.style.border = "0.1px solid black";
     container.appendChild(divs);
   }
   drawOnBoard();
+  toggleGridButton();
 }
 
 
@@ -92,13 +95,44 @@ function clearGrid() {
   }
 }
 
+const gridButton = document.getElementById("btn-Grid");
+gridButton.addEventListener("click", () => {
+  gridButton.classList.toggle("btnClicked");
+  if (isGridButtonToggled === false) {
+    isGridButtonToggled = true;
+    console.log(isGridButtonToggled);
+    toggleGridButton();
+  }
+  else {
+    isGridButtonToggled = false;
+    console.log(isGridButtonToggled);
+    toggleGridButton();
+  }
+});
+
+
+function toggleGridButton() {
+
+  const gridElements = document.getElementsByClassName("gridDivs");
+
+  for (var i = 0; i < gridElements.length; ++i) {
+    if (isGridButtonToggled === true) {
+      gridElements[i].style.border = "0px solid black";
+    }
+    else {
+      gridElements[i].style.border = "0.1px solid black";
+    }
+  }
+}
+
 
 //drawing on the board
 function drawOnBoard() {
   let isDown = false;
 
-  const divs2 = document.querySelector("gridContainer");
+  document.querySelector("gridContainer");
   for (const divs2 of gridContainer.children) {
+
     divs2.addEventListener("mousedown", () => {
       if (isEraserButtonClicked === false) {
         divs2.style.backgroundColor = "coral";
@@ -125,4 +159,5 @@ function drawOnBoard() {
   document.addEventListener('mouseup', () => {
     isDown = false;
   });
+
 }
