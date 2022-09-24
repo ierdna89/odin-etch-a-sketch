@@ -68,7 +68,7 @@ function drawGrid() {
   toggleGridButton();
 }
 
-
+// erase button implimentation
 const eraserButton = document.getElementById("btn-Eraser");
 eraserButton.addEventListener("click", () => {
   eraserButton.classList.toggle("btnClicked");
@@ -86,7 +86,7 @@ eraserButton.addEventListener("click", () => {
   }
 });
 
-
+// reset button implimentation
 const clearGridButton = document.getElementById("btn-Reset");
 clearGridButton.addEventListener("click", () => {
   clearGrid();
@@ -100,7 +100,7 @@ function clearGrid() {
   }
 }
 
-
+// toggle grid implimentation
 const gridButton = document.getElementById("btn-Grid");
 gridButton.addEventListener("click", () => {
   gridButton.classList.toggle("btnClicked");
@@ -129,6 +129,7 @@ function toggleGridButton() {
   }
 }
 
+// color picker impllimentation
 let pickedColor;
 function pickColor() {
   pickedColor = document.getElementById("color-picker");

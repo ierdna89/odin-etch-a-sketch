@@ -51,10 +51,8 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
   flex-wrap: wrap;
-  /* width: 500px; */
   height: 500px;
   background-color: var(--secondary-light);
-  /* border: 1px solid gray; */
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   margin-bottom: 15px;
 }
@@ -72,7 +70,7 @@ body {
   width: 125px;
   height: 40px;
   font-size: 15px;
-  border-color: black;
+  border-color: var(--secondary-dark);
   border-style: solid;
   border-width: thin;
   background-color: var(--secondary-dark);
@@ -81,9 +79,12 @@ body {
 }
 
 #btn-Color,
-#btn-Grid,
 #btn-Eraser {
   border-width: thin 0px thin thin;
+}
+
+#btn-Grid {
+  border-width: thin 0px thin 0px;
 }
 
 #btn-Reset {
@@ -153,6 +154,19 @@ body {
   width: 125px;
   height: 40px;
   font-size: 20px;
+}
+
+#btn-Color {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-style: none;
+}
+
+#color-picker {
+  width: 125px;
+  height: 40px;
+  border-style: none;
 }
 
 .cursorEraser {
