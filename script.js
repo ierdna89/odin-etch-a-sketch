@@ -10,6 +10,7 @@ slider.oninput = () => {
 }
 
 slider.addEventListener("click", drawGrid);
+const container = document.getElementById("gridContainer");
 
 function drawDefaultGrid() {
   for (let i = 0; i <= 256 - 1; i++) {
@@ -20,7 +21,7 @@ function drawDefaultGrid() {
     container.style.width = "500px";
     divs.style.boxSizing = "border-box";
     divs.setAttribute("class", "gridDivs");
-    // divs.style.border = "0.1px solid black";
+    container.setAttribute("class", "gridContainer cursorPencil");
     container.appendChild(divs);
   }
 
@@ -60,7 +61,7 @@ function drawGrid() {
     container.style.width = `${getGridDimension()}px`;
     divs.style.boxSizing = "border-box";
     divs.setAttribute("class", "gridDivs");
-    // divs.style.border = "0.1px solid black";
+    container.setAttribute("class", "gridContainer cursorPencil");
     container.appendChild(divs);
   }
   drawOnBoard();
@@ -68,15 +69,19 @@ function drawGrid() {
 }
 
 
-const button = document.getElementById("btn-Eraser");
-button.addEventListener("click", () => {
-  button.classList.toggle("btnClicked");
+const eraserButton = document.getElementById("btn-Eraser");
+eraserButton.addEventListener("click", () => {
+  eraserButton.classList.toggle("btnClicked");
   if (isEraserButtonClicked === false) {
     isEraserButtonClicked = true;
+    container.removeAttribute("class", "cursorPencil");
+    container.setAttribute("class", "gridContainer cursorEraser");
     console.log(isEraserButtonClicked);
+
   }
   else {
     isEraserButtonClicked = false;
+    container.setAttribute("class", "gridContainer cursorPencil");
     console.log(isEraserButtonClicked);
   }
 });
@@ -95,6 +100,7 @@ function clearGrid() {
   }
 }
 
+
 const gridButton = document.getElementById("btn-Grid");
 gridButton.addEventListener("click", () => {
   gridButton.classList.toggle("btnClicked");
@@ -112,9 +118,7 @@ gridButton.addEventListener("click", () => {
 
 
 function toggleGridButton() {
-
   const gridElements = document.getElementsByClassName("gridDivs");
-
   for (var i = 0; i < gridElements.length; ++i) {
     if (isGridButtonToggled === true) {
       gridElements[i].style.border = "0px solid black";
@@ -125,6 +129,21 @@ function toggleGridButton() {
   }
 }
 
+let pickedColor;
+function pickColor() {
+  pickedColor = document.getElementById("color-picker");
+  pickedColor.addEventListener("click", () => {
+    if (isEraserButtonClicked === true) {
+      isEraserButtonClicked = false;
+      eraserButton.classList.toggle("btnClicked");
+      container.removeAttribute("class", "cursorEraser");
+      container.setAttribute("class", "gridContainer cursorPencil");
+      console.log(isEraserButtonClicked);
+    }
+  });
+  console.log(pickedColor.value);
+  return pickedColor.value;
+}
 
 //drawing on the board
 function drawOnBoard() {
@@ -135,7 +154,7 @@ function drawOnBoard() {
 
     divs2.addEventListener("mousedown", () => {
       if (isEraserButtonClicked === false) {
-        divs2.style.backgroundColor = "coral";
+        divs2.style.backgroundColor = `${pickColor()}`;
       }
       else {
         divs2.style.backgroundColor = "white";
@@ -144,7 +163,7 @@ function drawOnBoard() {
 
     divs2.addEventListener("mouseover", () => {
       if (isDown === true && isEraserButtonClicked === false) {
-        divs2.style.backgroundColor = "coral";
+        divs2.style.backgroundColor = `${pickColor()}`;
       }
       else if (isDown === true) {
         divs2.style.backgroundColor = "white"
